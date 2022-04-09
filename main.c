@@ -261,7 +261,7 @@ void addRead(){
     printf("\nName: "); scanf("%s",&a.name);
     printf("\nAuthor: "); scanf("%s",&a.author);
     printf("\nGenre: "); scanf("%s", &a.genre);
-    printf("\nRating (Out of 5)"); scanf("%d",&a.stars);
+    printf("\nRating (Out of 5): "); scanf("%d",&a.stars);
 
     /*
     strcpy(a.name,name);
