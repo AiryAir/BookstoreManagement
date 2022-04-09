@@ -55,7 +55,7 @@ int main(){
     while(br){
 
         printf("MENU\nEnter the option number \n");
-        printf("(1) Add to READ \n(2) Add to UNREAD \n(3) Search READ\n(4) Find highest rated \n(5) Add from unread to read \n(6) Delete from read\n(7) Delete form unread \n(8) Exit\n (9)View all read\n(10)View All unread\n");
+        printf("(1) Add to READ \n(2) Add to UNREAD \n(3) Search READ\n (4) Search UNREAD (5) Find highest rated \n(6) Add from unread to read \n(7) Delete from READ\n(8) Delete form UNREAD \n\n (9) View all read\n(10) View All unread\n(11) EXIT\n");
 
         scanf("%d",&choice);
 
@@ -68,6 +68,7 @@ int main(){
         case 2:
             addUnread();
             break;
+
         case 3:
             char key[30];
             printf("enter the name of the book you want search\n");
@@ -76,18 +77,25 @@ int main(){
             break;
 
         case 4:
+                char key4[30];
+                    printf("enter the name of the book you just read\n");
+                    scanf("%s",key4);
+                    addUnrRea(key4);
+                    break;
+
+        case 5:
 
             int top=0;
             top=highestRated();
             printf("%d",top);
             break;
 
-        case 5:
+        case 6:
 
             addUnrRea();
             break;
 
-        case 6:
+        case 7:
 
             char key1[30];
             printf("enter the name of the book you want to delete\n");
@@ -95,18 +103,12 @@ int main(){
             deleteRead(key1);
             break;
 
-        case 7:
+        case 8:
 
             char key2[30];
             printf("enter the name of the book you want to delete\n");
             scanf("%s",key2);
             deleteUnread(key2);
-            break;
-
-        case 8:
-
-            printf("okay terminating\n");
-            br=0;
             break;
 
         case 9:  
@@ -118,6 +120,12 @@ int main(){
                 printf("All Unread\n");
                 allUnread();
                 break;
+
+        case 11:
+
+            printf("Terminating\n");
+            br=0;
+            break;
         
         default:
             printf("Invalid choice. Please try again");
@@ -403,8 +411,36 @@ void deleteRead(char sk[30]){
 
 }
 
-void addUnrRea(){
-         FILE *outfile;
+void addUnrRea(char sk[30]){
+
+    struct read a;
+
+    FILE *inf;
+    struct unread inp;
+
+    inf = fopen ("unread.txt", "r");
+    if (inf == NULL) {
+        fprintf(stderr, "\nError to open the file\n");
+        //exit (1);
+    }
+    while(fread(&inp, sizeof(struct unread), 1, inf)){
+      printf ("name = %s\n", inp.name);
+      if(!strcmp(sk,inp.name)){
+
+        strcpy(a.name,inp.name);
+        strcpy(a.author,inp.author);
+        strcpy(a.genre,inp.genre);
+        printf("rating (out of 5)\n"); scanf("%d",&a.stars);
+
+          break;
+      }
+    
+
+   fclose (inf);   
+}
+
+    
+    FILE *outfile;
      
     // open file for writing
     outfile = fopen ("read.txt", "a");
@@ -413,14 +449,7 @@ void addUnrRea(){
         fprintf(stderr, "\nError opening file\n");
         //exit (1);
     }
-
-    struct read a;
-
-    printf("Enter the details of the book you just read in the format below\n");
-    printf("Name\n"); scanf("%s",&a.name);
-    printf("Author\n"); scanf("%s",&a.author);
-    printf("genre\n"); scanf("%s", &a.genre);
-    printf("rating (out of 5)\n"); scanf("%d",&a.stars);    
+        
      
     // write struct to file
     fwrite(&a, sizeof(struct read) ,1 ,outfile);
@@ -435,7 +464,6 @@ void addUnrRea(){
     // close file
     fclose (outfile);
  
-    return;
 
     deleteRead(a.name);
     
