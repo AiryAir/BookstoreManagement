@@ -176,7 +176,7 @@ void search(char sk[30]){
     
       if(!strcmp(sk,inp.name)){
           
-          printf("Name= %s\n Author= %s\n Genre= %s\n Rating =%d\n",inp.name,inp.author,inp.genre,inp.stars);
+          printf("Name= %s\nAuthor= %s\nGenre= %s\nRating =%d\n",inp.name,inp.author,inp.genre,inp.stars);
           break;
           exit(1);
       }
