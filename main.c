@@ -462,6 +462,7 @@ void addUnrRea(char sk[30]){
      
     if(fwrite != 0){
         printf("Book marked as read!\n");
+        exit(1);
     }
     else{
         printf("error writing file !\n");
