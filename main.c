@@ -273,7 +273,7 @@ void addRead(){
     fwrite(&a, sizeof(struct read) ,1 ,outfile);
      
     if(fwrite != 0){
-        printf("contents to file written successfully !\n");
+        printf("\nContents to file written successfully!\n");
     }
     else{
         printf("error writing file !\n");
