@@ -68,13 +68,13 @@ int main(){
             char key[30];
             printf("enter the name of the book you want search\n");
             scanf("%s",key);
-            search(char *sk);
+            search(key);
             break;
 
         case 4:
 
             int top=0;
-            top=highestRated(sk);
+            top=highestRated();
             printf("%d",top);
             break;
 
@@ -85,18 +85,18 @@ int main(){
 
         case 6:
 
-            char key[30];
+            char key1[30];
             printf("enter the name of the book you want to delete\n");
-            scanf("%s",key);
-            deleteRead(key);
+            scanf("%s",key1);
+            deleteRead(key1);
             break;
 
         case 7:
 
-            char key[30];
+            char key2[30];
             printf("enter the name of the book you want to delete\n");
-            scanf("%s",key);
-            deleteUnread(key);
+            scanf("%s",key2);
+            deleteUnread(key2);
             break;
 
         case 8:
