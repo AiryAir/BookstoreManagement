@@ -25,6 +25,8 @@ void deleteUnread(char sk[30]);
 int highestRated();
 void deleteRead(char sk[30]);
 void addUnrRea();
+void allRead();
+void allUnread();
 
 
 struct read{
@@ -106,6 +108,11 @@ int main(){
             printf("okay terminating\n");
             br=0;
             break;
+
+        case 9:  
+                printf("All Read\n");
+                allRead();
+                break;
         
         default:
             printf("Invalid choice. Please try again");
@@ -120,7 +127,15 @@ int main(){
     
 }
 
+void allRead(){
 
+    FILE *inf;
+    inf=fopen("read.txt","r");
+    struct read r;
+    while(fscanf(inf,"%s %s %s %d",r.name,r.author,r.genre,&r.stars)!=EOF){
+        printf("%s %s %s %d\n",r.name,r.author,r.genre,r.stars);
+    }
+}
 
 void search(char sk[30]){
 
