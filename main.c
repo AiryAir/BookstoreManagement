@@ -276,7 +276,7 @@ void addRead(){
         printf("\nContents to file written successfully!\n");
     }
     else{
-        printf("error writing file !\n");
+        printf("Error writing to file!\n");
     }
  
     // close file
