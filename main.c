@@ -126,7 +126,7 @@ int main(){
 
         case 11:
 
-            printf("\n****GOODBYE****\n");
+            printf("\n**** G O O D B Y E ****\n\n");
             br=0;
             break;
         
