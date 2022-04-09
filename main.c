@@ -126,7 +126,7 @@ int main(){
 
         case 11:
 
-            printf("Terminating\n");
+            printf("\n****GOODBYE****\n");
             br=0;
             break;
         
