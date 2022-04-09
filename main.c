@@ -92,7 +92,8 @@ int main(){
         case 6:
 
             char key4[30];
-            printf("enter the name of the book you just read\n");
+            printf("Mark book as read\n");
+            printf("Enter name of book: ");
             scanf("%s",key4);
             addUnrRea(key4);
             break;
@@ -434,7 +435,7 @@ void addUnrRea(char sk[30]){
         strcpy(a.name,inp.name);
         strcpy(a.author,inp.author);
         strcpy(a.genre,inp.genre);
-        printf("rating (out of 5)\n"); scanf("%d",&a.stars);
+        printf("Rating (out of 5)\n"); scanf("%d",&a.stars);
 
           break;
           exit(1);
@@ -460,7 +461,7 @@ void addUnrRea(char sk[30]){
     fwrite(&a, sizeof(struct read) ,1 ,outfile);
      
     if(fwrite != 0){
-        printf("contents to file written successfully !\n");
+        printf("Book marked as read!\n");
     }
     else{
         printf("error writing file !\n");
