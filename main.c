@@ -352,6 +352,7 @@ int highestRated(){
    fclose (inf); 
 
    printf("\nHighest Rated Book: %s\n",bookname);
+   printf("Rating: ");
    return highest;
 
 }
