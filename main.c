@@ -137,6 +137,16 @@ void allRead(){
     }
 }
 
+void allUnread(){
+    
+        FILE *inf;
+        inf=fopen("unread.txt","r");
+        struct unread r;
+        while(fscanf(inf,"%s %s %s",r.name,r.author,r.genre)!=EOF){
+            printf("%s %s %s\n",r.name,r.author,r.genre);
+        }
+}
+
 void search(char sk[30]){
 
     FILE *inf;
