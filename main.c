@@ -383,8 +383,8 @@ void deleteRead(char sk[30]){
    fclose (inf);   
 
    for(int i=0;i<counter;i++){
-       printf("Deleting...");
-       printf("NAME: %s\nAUTHOR: %s\n,GENRE: %s\n RATING:%d\n", readbooks[i].name, readbooks[i].author, readbooks[i].genre,readbooks[i].stars);
+       printf("Deleting the following data:");
+       printf("NAME: %s\nAUTHOR: %s\nGENRE: %s\n RATING:%d\n", readbooks[i].name, readbooks[i].author, readbooks[i].genre,readbooks[i].stars);
        exit(1);
    }
 
