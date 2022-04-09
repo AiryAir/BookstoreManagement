@@ -109,7 +109,7 @@ int main(){
         case 8:
 
             char key2[30];
-            printf("Enter name of book to delete from UNREAD: \n");
+            printf("Enter name of book to delete from UNREAD: ");
             scanf("%s",key2);
             deleteUnread(key2);
             break;
@@ -212,7 +212,7 @@ void deleteUnread(char sk[30]){
 
    for(int i=0;i<counter;i++){
        printf("Deleting the following data");
-       printf("\nNAME: %s\nAUTHOR: %s\n GENRE: %s \n", unreadbooks[i].name, unreadbooks[i].author, unreadbooks[i].genre);
+       printf("\nNAME: %s\nAUTHOR: %s\nGENRE: %s \n", unreadbooks[i].name, unreadbooks[i].author, unreadbooks[i].genre);
        exit(1);
    }
 
