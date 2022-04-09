@@ -257,11 +257,11 @@ void addRead(){
 
     struct read a;
 
-    printf("Enter the details of the book you just read in the format below\n");
-    printf("Name\n"); scanf("%s",&a.name);
-    printf("Author\n"); scanf("%s",&a.author);
-    printf("genre\n"); scanf("%s", &a.genre);
-    printf("rating (out of 5)\n"); scanf("%d",&a.stars);    
+    printf("\nEnter the details of the book you just read in the format below\n");
+    printf("\nName: "); scanf("%s",&a.name);
+    printf("\nAuthor: "); scanf("%s",&a.author);
+    printf("\nGenre: "); scanf("%s", &a.genre);
+    printf("\nRating (Out of 5)"); scanf("%d",&a.stars);
 
     /*
     strcpy(a.name,name);
