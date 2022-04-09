@@ -57,7 +57,7 @@ int main(){
     while(br){
 
         printf("MENU\nEnter the option number \n");
-        printf("(1) Add to READ \n(2) Add to UNREAD \n(3) Search READ\n(4) Search UNREAD\n(5) Find highest rated \n(6) Add from unread to read \n(7) Delete from READ\n(8) Delete form UNREAD \n\n (9) View all read\n(10) View All unread\n(11) EXIT\n");
+        printf("(1) Add to READ \n(2) Add to UNREAD \n(3) Search READ\n(4) Search UNREAD\n(5) Find highest rated \n(6) Add from unread to read \n(7) Delete from READ\n(8) Delete form UNREAD \n(9) View all read\n(10) View All unread\n(11) EXIT\n");
 
         scanf("%d",&choice);
 
@@ -435,6 +435,7 @@ void addUnrRea(char sk[30]){
         printf("rating (out of 5)\n"); scanf("%d",&a.stars);
 
           break;
+          exit(1);
       }
     
 
