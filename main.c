@@ -101,7 +101,8 @@ int main(){
         case 7:
 
             char key1[30];
-            printf("enter the name of the book you want to delete\n");
+            printf("Remove from READ\n");
+            printf("Enter name of book: ");
             scanf("%s",key1);
             deleteRead(key1);
             break;
@@ -382,7 +383,9 @@ void deleteRead(char sk[30]){
    fclose (inf);   
 
    for(int i=0;i<counter;i++){
-       printf("%s %s %s %d\n", readbooks[i].name, readbooks[i].author, readbooks[i].genre,readbooks[i].stars);
+       printf("Deleting...");
+       printf("NAME: %s\nAUTHOR: %s\n,GENRE: %s\n RATING:%d\n", readbooks[i].name, readbooks[i].author, readbooks[i].genre,readbooks[i].stars);
+       exit(1);
    }
 
     FILE *outfile;
