@@ -113,6 +113,11 @@ int main(){
                 printf("All Read\n");
                 allRead();
                 break;
+
+        case 10:
+                printf("All Unread\n");
+                allUnread();
+                break;
         
         default:
             printf("Invalid choice. Please try again");
