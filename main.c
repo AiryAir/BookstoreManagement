@@ -50,8 +50,8 @@ int main(){
 
     while(br){
 
-        printf("MENU\nEnter the option number\n");
-        printf("  1) add to read \n 2)   add to unread \n3)   search using name\n 4)   find highest rated \n5)   add from unread to read \n6)   delete from read\n 7)    delete form unread 8)      exit\n");
+        printf("MENU\nEnter the option number \n");
+        printf("(1) add to read \n(2) add to unread \n(3) search using name\n(4) find highest rated \n(5) add from unread to read \n(6) delete from read\n(7) delete form unread \n(8)exit\n");
 
         scanf("%d",&choice);
 
@@ -63,7 +63,7 @@ int main(){
 
         case 2:
             addUnread();
-
+            break;
         case 3:
             char key[30];
             printf("enter the name of the book you want search\n");
@@ -114,11 +114,7 @@ int main(){
 
     }
 
-    char sk[30]="kriti";
-    int top=0;
 
-
-    deleteRead(sk);
     
 }
 
@@ -135,10 +131,12 @@ void search(char sk[30]){
         //exit (1);
     }
     while(fread(&inp, sizeof(struct read), 1, inf)){
-      printf ("name = %s\n", inp.name);
+    
       if(!strcmp(sk,inp.name)){
-          printf("%s %s %s %s\n",inp.name,inp.author,inp.genre,inp.stars);
+          
+          printf("Name= %s\n Author= %s\n Genre= %s\n Rating =%d\n",inp.name,inp.author,inp.genre,inp.stars);
           break;
+          exit(1);
       }
     }
 
@@ -147,8 +145,6 @@ void search(char sk[30]){
 }
 
 void deleteUnread(char sk[30]){
-
-
 
     FILE *inf;
     struct unread inp;
@@ -173,6 +169,7 @@ void deleteUnread(char sk[30]){
 
    for(int i=0;i<counter;i++){
        printf("%s %s %s \n", unreadbooks[i].name, unreadbooks[i].author, unreadbooks[i].genre);
+       exit(1);
    }
 
     FILE *outfile;
@@ -199,6 +196,8 @@ void deleteUnread(char sk[30]){
  
     return;
 
+
+}
 
 }
 
