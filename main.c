@@ -55,7 +55,7 @@ int main(){
     while(br){
 
         printf("MENU\nEnter the option number \n");
-        printf("(1) add to read \n(2) add to unread \n(3) search using name\n(4) find highest rated \n(5) add from unread to read \n(6) delete from read\n(7) delete form unread \n(8) exit\n (9)View all Read\n");
+        printf("(1) add to read \n(2) add to unread \n(3) search using name\n(4) find highest rated \n(5) add from unread to read \n(6) delete from read\n(7) delete form unread \n(8) exit\n (9)View all read\n(10)View All unread\n");
 
         scanf("%d",&choice);
 
