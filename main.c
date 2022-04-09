@@ -301,20 +301,20 @@ void addUnread(){
 
     struct unread a;
 
-    printf("Enter the details of the book you want to read\n");
-    printf("Name\n"); scanf("%s",&a.name);
-    printf("Author\n"); scanf("%s",&a.author);
-    printf("genre\n"); scanf("%s", &a.genre);
+    printf("\nEnter the details of the book you want to read\n");
+    printf("\nName:"); scanf("%s",&a.name);
+    printf("\nAuthor:"); scanf("%s",&a.author);
+    printf("\nGenre: "); scanf("%s", &a.genre);
 
      
     // write struct to file
     fwrite(&a, sizeof(struct unread) ,1 ,outfile);
      
     if(fwrite != 0){
-        printf("contents to file written successfully !\n");
+        printf("\nContents to file written successfully!\n");
     }
     else{
-        printf("error writing file !\n");
+        printf("Error writing file!\n");
     }
  
     // close file
