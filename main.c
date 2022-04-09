@@ -211,7 +211,7 @@ void deleteUnread(char sk[30]){
    fclose (inf);   
 
    for(int i=0;i<counter;i++){
-       printf("Deleting the following data");
+       printf("\nDeleting the following data");
        printf("\nNAME: %s\nAUTHOR: %s\nGENRE: %s \n", unreadbooks[i].name, unreadbooks[i].author, unreadbooks[i].genre);
        exit(1);
    }
