@@ -79,11 +79,8 @@ int main(){
             break;
 
         case 4:
-                char key4[30];
-                    printf("enter the name of the book you just read\n");
-                    scanf("%s",key4);
-                    addUnrRea(key4);
-                    break;
+                printf("not ready yet\n");
+                break;
 
         case 5:
 
@@ -94,7 +91,10 @@ int main(){
 
         case 6:
 
-            addUnrRea();
+            char key4[30];
+            printf("enter the name of the book you just read\n");
+            scanf("%s",key4);
+            addUnrRea(key4);
             break;
 
         case 7:
