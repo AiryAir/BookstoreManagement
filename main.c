@@ -175,7 +175,7 @@ void search(char sk[30]){
     while(fread(&inp, sizeof(struct read), 1, inf)){
     
       if(!strcmp(sk,inp.name)){
-          
+          printf("\nSearching...\n");
           printf("NAME: %s\nAUTHOR: %s\nGENRE: %s\nRATING: %d\n",inp.name,inp.author,inp.genre,inp.stars);
           break;
           exit(1);
