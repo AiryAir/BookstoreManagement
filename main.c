@@ -338,7 +338,7 @@ int highestRated(){
         //exit (1);
     }
     while(fread(&inp, sizeof(struct read), 1, inf)){
-      printf ("stars = %d\n", inp.stars);
+      //printf ("stars = %d\n", inp.stars);
 
       if(inp.stars>highest){
 
