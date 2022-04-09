@@ -473,5 +473,5 @@ void addUnrRea(char sk[30]){
  
 
     deleteRead(a.name);
-    
+    return;
 }
