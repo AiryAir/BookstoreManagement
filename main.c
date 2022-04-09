@@ -12,6 +12,8 @@
    add form unread to read 
    delete from read (done)
    delete form unread (done)
+   view all read
+   view all unread
 
 
     */
@@ -51,7 +53,7 @@ int main(){
     while(br){
 
         printf("MENU\nEnter the option number \n");
-        printf("(1) add to read \n(2) add to unread \n(3) search using name\n(4) find highest rated \n(5) add from unread to read \n(6) delete from read\n(7) delete form unread \n(8)exit\n");
+        printf("(1) add to read \n(2) add to unread \n(3) search using name\n(4) find highest rated \n(5) add from unread to read \n(6) delete from read\n(7) delete form unread \n(8) exit\n");
 
         scanf("%d",&choice);
 
