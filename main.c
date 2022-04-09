@@ -27,6 +27,8 @@ void deleteRead(char sk[30]);
 void addUnrRea();
 void allRead();
 void allUnread();
+void addUnrRea(char sk[30]);
+
 
 
 struct read{
