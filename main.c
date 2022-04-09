@@ -343,6 +343,7 @@ int highestRated(){
       if(inp.stars>highest){
 
           highest=inp.stars;
+          
           strcpy(bookname,inp.name);
 
       }
@@ -350,7 +351,7 @@ int highestRated(){
 
    fclose (inf); 
 
-   printf("%s\n",bookname);
+   printf("\nHighest Rated Book: %s\n",bookname);
    return highest;
 
 }
