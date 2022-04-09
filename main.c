@@ -284,10 +284,11 @@ void addUnread(){
 
 int highestRated(){
 
-        FILE *inf;
+    FILE *inf;
     struct read inp;
 
     int highest=0;
+    char bookname[30];
 
     inf = fopen ("read.txt", "r");
     if (inf == NULL) {
@@ -300,13 +301,14 @@ int highestRated(){
       if(inp.stars>highest){
 
           highest=inp.stars;
+          strcpy(bookname,inp.name);
 
       }
     }
 
-   fclose (inf);  
+   fclose (inf); 
 
-
+   printf("%s\n",bookname);
    return highest;
 
 }
