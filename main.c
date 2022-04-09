@@ -73,7 +73,7 @@ int main(){
 
         case 3:
             char key[30];
-            printf("enter the name of the book you want search\n");
+            printf("\nEnter the name of the book you want to find: ");
             scanf("%s",key);
             search(key);
             break;
