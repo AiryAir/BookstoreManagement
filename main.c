@@ -231,7 +231,7 @@ void search(char sk[30]){
 
 
 //function to search for a book that has been read
-void deleteUnread(char sk[30]){
+/*void deleteUnread(char sk[30]){
 
     //file pointer
     FILE *inf;
@@ -295,6 +295,38 @@ void deleteUnread(char sk[30]){
 
 }
 
+}*/
+
+void deleteUnread(char sk[30]){
+    
+    FILE *inp;
+    FILE *outfile;
+    int f=0;
+
+    struct unread r;
+
+    inp = fopen ("unread.txt", "rb");
+    outfile = fopen ("unread1.txt", "wb");
+
+
+
+    while(fread(&r,sizeof(struct unread),1,inp)!=NULL){
+        if(strcmp(sk,r.name)==1){
+
+            printf("\nDeleting the data");
+            f=1;
+            
+        }
+       
+    else{
+        fwrite(&r,sizeof(struct unread),1,inp);
+
+    }
+    fclose(inp);
+    fclose(outfile);
+    remove("unread.txt");
+    rename("unread.txt","unread1.txt");
+    }
 }
 
 void addRead(){
