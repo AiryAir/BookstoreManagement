@@ -23,7 +23,7 @@
 void addRead();
 void addUnread();
 void search(char sk[30]);   
-void deleteUnread(char sk[30]);
+void deleteUnread();
 int highestRated();
 void deleteRead(char sk[30]);
 //void addUnrRea();
@@ -88,8 +88,8 @@ int main(){
             break;
 
         case 4:
-                printf("not ready yet\n");
-                break;
+            printf("not ready yet\n");
+            break;
 
         case 5:
             int top=0;
@@ -113,10 +113,10 @@ int main(){
             break;
 
         case 8:
-            char key2[30];
-            printf("Enter name of book to delete from UNREAD: ");
-            scanf("%s",key2);
-            deleteUnread(key2);
+            // char key2[30];
+            // printf("Enter name of book to delete from UNREAD: ");
+            // scanf("%s",key2);
+            deleteUnread();
             break;
 
         case 9:  
@@ -329,52 +329,39 @@ void search(char sk[30]){
     }
 }*/
 
-void deleteUnread(char sk[30]){
-    
+void deleteUnread(){
     FILE *inp;
     FILE *inp1;
+    struct unread s;
+    
+    int j,name,found=0;
 
-    struct unread r;
-    struct unread r1;
-
-    int id,found=0,count=0;
-
-    inp = fopen ("unread.txt", "r");
-    inp1 = fopen ("unread1.txt", "w");
-
-    while(1){
-        fread(&r,sizeof(struct unread),1,inp);
-        if(feof(inp)){
-            break;
-        }
-        if(sk==r.name){
+    inp = fopen("unread.txt","r");
+    inp1 = fopen("unread1.txt","w");
+    printf("enter name of book to delete: ");
+    scanf("%s",name);
+    
+    while(fread(&s,sizeof(struct unread),1,inp)){
+        if(s.name==name){
             found=1;
-            printf("\nDeleting the data");
         }
         else{
-            fwrite(&r,sizeof(struct unread),1,inp1);
+            fwrite(&s,sizeof(struct unread),1,inp1);
         }
+        
     }
-fclose(inp);
-fclose(inp1);
-    if(found==0){
-        printf("\nNo book found");
-    }
-    else{
-        inp = fopen("unread.txt","w");
+    fclose(inp);  
+    fclose(inp1);
+    if(found){
         inp1 = fopen("unread1.txt","r");
+        inp = fopen("unread.txt","w");
 
-        while(1){
-            fread(&r,sizeof(r),1,inp);
-            if(feof(inp1)){
-                break;
-            }   
-            fwrite(&r,sizeof(r),1,inp);
-
+        while(fread(&s,sizeof(struct unread),1,inp1)){
+            fwrite(&s,sizeof(struct unread),1,inp);
         }
+    fclose(inp);
+    fclose(inp1);
     }
-fclose(inp);
-fclose(inp1);
 }
 
 
