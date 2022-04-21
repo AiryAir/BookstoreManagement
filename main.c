@@ -297,7 +297,7 @@ void search(char sk[30]){
 
 }*/
 
-void deleteUnread(char sk[30]){
+/*void deleteUnread(char sk[30]){
     
     FILE *inp;
     FILE *outfile;
@@ -327,7 +327,56 @@ void deleteUnread(char sk[30]){
     remove("unread.txt");
     rename("unread.txt","unread1.txt");
     }
+}*/
+
+void deleteUnread(char sk[30]){
+    
+    FILE *inp;
+    FILE *inp1;
+
+    struct unread r;
+    struct unread r1;
+
+    int id,found=0,count=0;
+
+    inp = fopen ("unread.txt", "r");
+    inp1 = fopen ("unread1.txt", "w");
+
+    while(1){
+        fread(&r,sizeof(struct unread),1,inp);
+        if(feof(inp)){
+            break;
+        }
+        if(sk==r.name){
+            found=1;
+            printf("\nDeleting the data");
+        }
+        else{
+            fwrite(&r,sizeof(struct unread),1,inp1);
+        }
+    }
+fclose(inp);
+fclose(inp1);
+    if(found==0){
+        printf("\nNo book found");
+    }
+    else{
+        inp = fopen("unread.txt","w");
+        inp1 = fopen("unread1.txt","r");
+
+        while(1){
+            fread(&r,sizeof(r),1,inp);
+            if(feof(inp1)){
+                break;
+            }   
+            fwrite(&r,sizeof(r),1,inp);
+
+        }
+    }
+fclose(inp);
+fclose(inp1);
 }
+
 
 void addRead(){
 
