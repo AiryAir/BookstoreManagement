@@ -120,7 +120,7 @@ int main(){
             break;
 
         case 9:  
-                printf("All Read\n");
+                printf("\nAll Read\n");
                 allRead();
                 break;
 
@@ -158,8 +158,9 @@ void allRead(){
 
     //read data from unread in the format of read struct and print it till end of file (eof)
     struct read r;
-    while(fscanf(inf,"NAME:%s\n AUTHOR:%s\n GENRE:%s\n RATING:%d",r.name,r.author,r.genre,&r.stars)!=EOF){
-        printf("%s %s %s %d\n",r.name,r.author,r.genre,r.stars);
+    while(fscanf(inf,"%s %s %s %d",r.name,r.author,r.genre,&r.stars)!=EOF){
+        printf("\nNAME: %s\nAUTHOR: %s\nGENRE: %s\nRATING:%d\n",r.name,r.author,r.genre,r.stars);
+        
     }
 }
 
@@ -176,7 +177,7 @@ void allUnread(){
         //read data from unread in the format of unread struct and print it till end of file (eof)
         struct unread r;
         while(fscanf(inf,"%s %s %s",r.name,r.author,r.genre)!=EOF){
-            printf("%s %s %s\n",r.name,r.author,r.genre);
+            printf("NAME: %s\n AUTHOR: %s\n GENRE: %s\n",r.name,r.author,r.genre);
         }
 }
 
