@@ -158,10 +158,10 @@ void allRead(){
 
     //read data from unread in the format of read struct and print it till end of file (eof)
     struct read r;
-    while(fscanf(inf,"%s %s %s %d",r.name,r.author,r.genre,&r.stars)!=EOF){
-        printf("\nNAME: %s\nAUTHOR: %s\nGENRE: %s\nRATING:%d\n",r.name,r.author,r.genre,r.stars);
-        
-    }
+   
+    while(fread(&r,sizeof(struct read),1,inf)){
+            printf("\nNAME: %s\nAUTHOR: %s\nGENRE: %s\nRATING: %d\n",r.name,r.author,r.genre,r.stars);
+        }
 }
 
 
@@ -170,14 +170,15 @@ void allUnread(){
         
         //file pointer
         FILE *inf;
-
+char filename[100], c;
         //open file unread.txt in read mode
         inf=fopen("unread.txt","r");
 
         //read data from unread in the format of unread struct and print it till end of file (eof)
         struct unread r;
-        while(fscanf(inf,"%s %s %s",r.name,r.author,r.genre)!=EOF){
-            printf("NAME: %s\n AUTHOR: %s\n GENRE: %s\n",r.name,r.author,r.genre);
+
+        while(fread(&r,sizeof(struct unread),1,inf)){
+            printf("\nNAME: %s\nAUTHOR: %s\nGENRE: %s\n\n",r.name,r.author,r.genre);
         }
 }
 
