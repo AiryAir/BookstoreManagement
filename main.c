@@ -26,7 +26,7 @@ void search(char sk[30]);
 void deleteUnread(char sk[30]);
 int highestRated();
 void deleteRead(char sk[30]);
-void addUnrRea();
+//void addUnrRea();
 void allRead();
 void allUnread();
 void addUnrRea(char sk[30]);
@@ -158,7 +158,7 @@ void allRead(){
 
     //read data from unread in the format of read struct and print it till end of file (eof)
     struct read r;
-    while(fscanf(inf,"%s %s %s %d",r.name,r.author,r.genre,&r.stars)!=EOF){
+    while(fscanf(inf,"NAME:%s\n AUTHOR:%s\n GENRE:%s\n RATING:%d",r.name,r.author,r.genre,&r.stars)!=EOF){
         printf("%s %s %s %d\n",r.name,r.author,r.genre,r.stars);
     }
 }
@@ -201,6 +201,10 @@ void search(char sk[30]){
 
     //while loop to read the file
     //fread if file read, input is stored in inp, size of read, file name
+
+    //pointer to a block of memory, size in bytes of each element to be read
+    //number of elements, each one with a size of size bytes
+    //pointer to a FILE object that specifies an input stream
     while(fread(&inp, sizeof(struct read), 1, inf)){
     
     //if statement to compare strings, ie, input given and to see if it exists in the file
@@ -209,6 +213,12 @@ void search(char sk[30]){
           printf("NAME: %s\nAUTHOR: %s\nGENRE: %s\nRATING: %d\n",inp.name,inp.author,inp.genre,inp.stars);
           break;
           exit(1);
+      }
+      else{
+            printf("\nSearching...\n");
+            printf("No book found\n");
+            break;
+            exit(1);
       }
     }
 
