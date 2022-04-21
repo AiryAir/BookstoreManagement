@@ -362,6 +362,7 @@ void deleteUnread(){
     fclose(inp);
     fclose(inp1);
     }
+    return;
 }
 
 
