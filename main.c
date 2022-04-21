@@ -18,6 +18,8 @@
 
     */
 
+
+//all functions declared here
 void addRead();
 void addUnread();
 void search(char sk[30]);   
@@ -30,7 +32,8 @@ void allUnread();
 void addUnrRea(char sk[30]);
 
 
-
+//struct for books that have been read
+//includes name, author, rating, and genre
 struct read{
 
     char name[30];
@@ -39,6 +42,9 @@ struct read{
     int stars;  
     
 };
+
+//struct for books that have not been read
+//includes name, author and genre
 
 struct unread{
 
@@ -49,6 +55,9 @@ struct unread{
 };
 
 
+
+//main function, ie, the menu of the program
+//the user can choose from the following options
 
 int main(){
 
@@ -83,14 +92,12 @@ int main(){
                 break;
 
         case 5:
-
             int top=0;
             top=highestRated();
             printf("%d",top);
             break;
 
         case 6:
-
             char key4[30];
             printf("Mark book as read\n");
             printf("Enter name of book: ");
@@ -99,7 +106,6 @@ int main(){
             break;
 
         case 7:
-
             char key1[30];
             printf("Enter name of book to delete from READ: ");
             scanf("%s",key1);
@@ -107,7 +113,6 @@ int main(){
             break;
 
         case 8:
-
             char key2[30];
             printf("Enter name of book to delete from UNREAD: ");
             scanf("%s",key2);
@@ -125,7 +130,6 @@ int main(){
                 break;
 
         case 11:
-
             printf("\n**** G O O D B Y E ****\n\n");
             br=0;
             break;
@@ -143,38 +147,63 @@ int main(){
     
 }
 
+//function for to display all books that have been read
 void allRead(){
 
+    //file pointer
     FILE *inf;
+
+    //open file read.txt in read mode
     inf=fopen("read.txt","r");
+
+    //read data from unread in the format of read struct and print it till end of file (eof)
     struct read r;
     while(fscanf(inf,"%s %s %s %d",r.name,r.author,r.genre,&r.stars)!=EOF){
         printf("%s %s %s %d\n",r.name,r.author,r.genre,r.stars);
     }
 }
 
+
+//function for to display all books that have not been read
 void allUnread(){
-    
+        
+        //file pointer
         FILE *inf;
+
+        //open file unread.txt in read mode
         inf=fopen("unread.txt","r");
+
+        //read data from unread in the format of unread struct and print it till end of file (eof)
         struct unread r;
         while(fscanf(inf,"%s %s %s",r.name,r.author,r.genre)!=EOF){
             printf("%s %s %s\n",r.name,r.author,r.genre);
         }
 }
 
+
+//function to search for a book that has been read
 void search(char sk[30]){
 
+    //file pointer
     FILE *inf;
+
+    //struct to store the data (inp being input)
     struct read inp;
 
+    //open file, read.txt in read mode
     inf = fopen ("read.txt", "r");
+
+    //if function for if file exists or not
     if (inf == NULL) {
         fprintf(stderr, "\nError to open the file\n");
         //exit (1);
     }
+
+    //while loop to read the file
+    //fread if file read, input is stored in inp, size of read, file name
     while(fread(&inp, sizeof(struct read), 1, inf)){
     
+    //if statement to compare strings, ie, input given and to see if it exists in the file
       if(!strcmp(sk,inp.name)){
           printf("\nSearching...\n");
           printf("NAME: %s\nAUTHOR: %s\nGENRE: %s\nRATING: %d\n",inp.name,inp.author,inp.genre,inp.stars);
@@ -183,22 +212,31 @@ void search(char sk[30]){
       }
     }
 
-   fclose (inf);   
+    //close file
+    fclose (inf);
 
 }
 
+
+//function to search for a book that has been read
 void deleteUnread(char sk[30]){
 
+    //file pointer
     FILE *inf;
+
     struct unread inp;
-    struct unread unreadbooks[100]; 
+    //array for copying all data
+    struct unread unreadbooks[100];
     int counter=0;
 
+    //open file, unread.txt in read mode
     inf = fopen ("unread.txt", "r");
+    //if function for if file exists or not
     if (inf == NULL) {
         fprintf(stderr, "\nError to open the file\n");
         //exit (1);
     }
+    //while loop to copy all data in array
     while(fread(&inp, sizeof(struct unread), 1, inf)){
 
       strcpy(unreadbooks[counter].name,inp.name);
@@ -208,17 +246,19 @@ void deleteUnread(char sk[30]){
       counter++;
     }
 
-   fclose (inf);   
+    //close file
+    fclose (inf);   
 
-   for(int i=0;i<counter;i++){
-       printf("\nDeleting the following data");
-       printf("\nNAME: %s\nAUTHOR: %s\nGENRE: %s \n", unreadbooks[i].name, unreadbooks[i].author, unreadbooks[i].genre);
-       exit(1);
-   }
+    //print out data in array
+    for(int i=0;i<counter;i++){
+        printf("\nDeleting the following data");
+        printf("\nNAME: %s\nAUTHOR: %s\nGENRE: %s \n", unreadbooks[i].name, unreadbooks[i].author, unreadbooks[i].genre);
+        exit(1);
+    }
 
     FILE *outfile;
      
-    // open file for writing
+    // open file unread.txt in write mode
     outfile = fopen ("unread.txt", "w");
     if (outfile == NULL)
     {
@@ -269,7 +309,8 @@ void addRead(){
     strcpy(a.name,name);
     strcpy(a.author,author);
     strcpy(a.genre,genre);
-    a.stars=stars;*/
+    a.stars=stars;
+    */
      
     // write struct to file
     fwrite(&a, sizeof(struct read) ,1 ,outfile);
