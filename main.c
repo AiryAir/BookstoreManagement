@@ -128,12 +128,7 @@ int main(){
             printf("Invalid choice. Please try again");
             break;
         }
-
-
-    }
-
-
-    
+    } 
 }
 
 void searchUnread(char sk[30]){
@@ -263,106 +258,6 @@ void search(char sk[30]){
 
 }
 
-
-//function to search for a book that has been read
-/*void deleteUnread(char sk[30]){
-
-    //file pointer
-    FILE *inf;
-
-    struct unread inp;
-    //array for copying all data
-    struct unread unreadbooks[100];
-    int counter=0;
-
-    //open file, unread.txt in read mode
-    inf = fopen ("unread.txt", "r");
-    //if function for if file exists or not
-    if (inf == NULL) {
-        fprintf(stderr, "\nError to open the file\n");
-        //exit (1);
-    }
-    //while loop to copy all data in array
-    while(fread(&inp, sizeof(struct unread), 1, inf)){
-
-      strcpy(unreadbooks[counter].name,inp.name);
-      strcpy(unreadbooks[counter].author,inp.author);
-      strcpy(unreadbooks[counter].genre,inp.genre);
-
-      counter++;
-    }
-
-    //close file
-    fclose (inf);   
-
-    //print out data in array
-    for(int i=0;i<counter;i++){
-        printf("\nDeleting the following data");
-        printf("\nNAME: %s\nAUTHOR: %s\nGENRE: %s \n", unreadbooks[i].name, unreadbooks[i].author, unreadbooks[i].genre);
-        exit(1);
-    }
-
-    FILE *outfile;
-     
-    // open file unread.txt in write mode
-    outfile = fopen ("unread.txt", "w");
-    if (outfile == NULL)
-    {
-        fprintf(stderr, "\nError opening file\n");
-        //exit (1);
-    }
- 
-   for(int i=0;i<counter;i++){
-       // write struct to file
-
-    if(strcmp(sk,unreadbooks[i].name)){
-    fwrite(&unreadbooks[i], sizeof(struct unread) ,1 ,outfile);
-    
-       
-   }
-     
-     fclose (outfile);
-
- 
-    return;
-
-
-}
-
-}*/
-
-/*void deleteUnread(char sk[30]){
-    
-    FILE *inp;
-    FILE *outfile;
-    int f=0;
-
-    struct unread r;
-
-    inp = fopen ("unread.txt", "rb");
-    outfile = fopen ("unread1.txt", "wb");
-
-
-
-    while(fread(&r,sizeof(struct unread),1,inp)!=NULL){
-        if(strcmp(sk,r.name)==1){
-
-            printf("\nDeleting the data");
-            f=1;
-            
-        }
-       
-    else{
-        fwrite(&r,sizeof(struct unread),1,inp);
-
-    }
-    fclose(inp);
-    fclose(outfile);
-    remove("unread.txt");
-    rename("unread.txt","unread1.txt");
-    }
-}*/
-
 void deleteUnread(){
     FILE *inp;
     FILE *inp1;
@@ -420,13 +315,6 @@ void addRead(){
     printf("\nGenre: "); scanf("%s", &a.genre);
     printf("\nRating (Out of 5): "); scanf("%d",&a.stars);
 
-    /*
-    strcpy(a.name,name);
-    strcpy(a.author,author);
-    strcpy(a.genre,genre);
-    a.stars=stars;
-    */
-     
     // write struct to file
     fwrite(&a, sizeof(struct read) ,1 ,outfile);
      
@@ -559,20 +447,12 @@ void deleteRead(char sk[30]){
 
     if(strcmp(sk,readbooks[i].name)){
     fwrite(&readbooks[i], sizeof(struct read) ,1 ,outfile);
-
-    //printf("written into file\n");
-    //printf("%s %s %s %d\n", readbooks[i].name, readbooks[i].author, readbooks[i].genre,readbooks[i].stars);
     }
-    // close file
-    
-       
+    // close file 
    }
      
      fclose (outfile);
-
- 
     return;
-
 }
 
 void addUnrRea(char sk[30]){
@@ -599,8 +479,6 @@ void addUnrRea(char sk[30]){
           break;
           exit(1);
       }
-    
-
    fclose (inf);   
 }
 
