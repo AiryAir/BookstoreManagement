@@ -67,7 +67,7 @@ int main(){
     while(br){
 
         printf("\n===============MENU==============\n\n");
-        printf("(1) Add to READ \n(2) Add to UNREAD \n(3) Search READ\n(4) Search UNREAD\n(5) Find highest rated \n(6) Add from unread to read \n(7) Delete from READ\n(8) Delete form UNREAD \n(9) View all read\n(10) View All unread\n(11) EXIT\n\nEnter your choice: ");
+        printf("(1) Add to READ \n(2) Add to UNREAD \n(3) Search READ\n(4) Search UNREAD\n(5) Find highest rated \n(6) Add from unread to read \n(7) View all read\n(8) View All unread\n(9) EXIT\n\nEnter your choice: ");
 
         scanf("%d",&choice);
 
@@ -110,37 +110,22 @@ int main(){
             break;
 
         case 7:
-            char key1[30];
-            printf("Enter name of book to delete from READ: ");
-            scanf("%s",key1);
-            deleteRead(key1);
+            printf("\nAll Read\n");
+            allRead();
             break;
 
         case 8:
-            // char key2[30];
-            // printf("Enter name of book to delete from UNREAD: ");
-            // scanf("%s",key2);
-            deleteUnread();
+            printf("All Unread\n");
+            allUnread();
             break;
 
         case 9:  
-                printf("\nAll Read\n");
-                allRead();
-                break;
-
-        case 10:
-                printf("All Unread\n");
-                allUnread();
-                break;
-
-        case 11:
             printf("\n**** G O O D B Y E ****\n\n");
             br=0;
             break;
-        
+            
         default:
             printf("Invalid choice. Please try again");
-
             break;
         }
 
