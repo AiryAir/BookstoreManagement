@@ -90,7 +90,7 @@ int main(){
 
         case 4:
             char key0[30];
-            printf("\nEnter the name of the book you want to find: ");
+            printf("\nEnter the name of the book you want to find1: ");
             scanf("%s",key);
             searchUnread(key);
             break;
@@ -174,7 +174,7 @@ void searchUnread(char sk[30]){
     //pointer to a block of memory, size in bytes of each element to be read
     //number of elements, each one with a size of size bytes
     //pointer to a FILE object that specifies an input stream
-    while(fread(&inp, sizeof(struct read), 1, inf)){
+    while(fread(&inp, sizeof(struct unread), 1, inf)){
     
     //if statement to compare strings, ie, input given and to see if it exists in the file
       if(!strcmp(sk,inp.name)){
