@@ -89,7 +89,7 @@ int main(){
             break;
 
         case 4:
-            char key2[30];
+            char key0[30];
             printf("\nEnter the name of the book you want to find: ");
             scanf("%s",key);
             searchUnread(key);
