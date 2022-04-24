@@ -22,7 +22,8 @@
 //all functions declared here
 void addRead();
 void addUnread();
-void search(char sk[30]);   
+void search(char sk[30]);
+void searchUnread(char sk[30]);   
 void deleteUnread();
 int highestRated();
 void deleteRead(char sk[30]);
@@ -88,7 +89,10 @@ int main(){
             break;
 
         case 4:
-            printf("not ready yet\n");
+            char key2[30];
+            printf("\nEnter the name of the book you want to find: ");
+            scanf("%s",key);
+            searchUnread(key);
             break;
 
         case 5:
@@ -145,6 +149,51 @@ int main(){
 
 
     
+}
+
+void searchUnread(char sk[30]){
+
+    //file pointer
+    FILE *inf;
+
+    //struct to store the data (inp being input)
+    struct read inp;
+
+    //open file, read.txt in read mode
+    inf = fopen ("unread.txt", "r");
+
+    //if function for if file exists or not
+    if (inf == NULL) {
+        fprintf(stderr, "\nError to open the file\n");
+        //exit (1);
+    }
+
+    //while loop to read the file
+    //fread if file read, input is stored in inp, size of read, file name
+
+    //pointer to a block of memory, size in bytes of each element to be read
+    //number of elements, each one with a size of size bytes
+    //pointer to a FILE object that specifies an input stream
+    while(fread(&inp, sizeof(struct read), 1, inf)){
+    
+    //if statement to compare strings, ie, input given and to see if it exists in the file
+      if(!strcmp(sk,inp.name)){
+          printf("\nSearching...\n");
+          printf("NAME: %s\nAUTHOR: %s\nGENRE: %s\n",inp.name,inp.author,inp.genre);
+          break;
+          exit(1);
+      }
+      else{
+            printf("\nSearching...\n");
+            printf("No book found\n");
+            break;
+            exit(1);
+      }
+    }
+
+    //close file
+    fclose (inf);
+
 }
 
 //function for to display all books that have been read
