@@ -199,7 +199,7 @@ void allUnread(){
         
         //file pointer
         FILE *inf;
-//char filename[100], c;
+        //char filename[100], c;
         //open file unread.txt in read mode
         inf=fopen("unread.txt","r");
 
